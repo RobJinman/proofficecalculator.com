@@ -80,7 +80,16 @@
   (fn [{:keys [l10n] :as config}]
     [:div {:class "page"}
      [:div {:class "main-content"}
-      [:h2 {:class "heading"} (:title l10n)]]
+      [:h2 {:class "heading"} (:title l10n)]
+      [:p (get-in l10n [:description])]
+      [:img {:class-name "screenshot"
+             :src "img/screen01.png"}]
+      [:h3 (get-in l10n [:windows :heading])]
+      [:p (get-in l10n [:windows :instructions])]
+      [:h3 (get-in l10n [:mac :heading])]
+      [:p (get-in l10n [:mac :instructions])]
+      [:h3 (get-in l10n [:linux :heading])]
+      (get-in l10n [:linux :instructions])]
      [footer-view (:footer l10n)]]))
 
 
