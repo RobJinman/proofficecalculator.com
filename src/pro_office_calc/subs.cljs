@@ -3,6 +3,6 @@
    [re-frame.core :refer [reg-sub]]))
 
 (reg-sub
- :msg
- (fn [state _]
-   (get-in state [:msg])))
+ :download-location
+ (fn [db [_ platform]]
+   (get-in db [:download-locations platform])))

@@ -3,6 +3,10 @@
    [re-frame.core :refer [reg-fx]]))
 
 (reg-fx
- :do-side-effect
- (fn [{:keys [arg1 arg2]}]
-   (do)))
+ :analytics
+ (fn [{:keys [category action label]}]
+   (let [ga (.-ga js/window)]
+     (ga "send" #js{:hitType "event"
+                    :eventCategory category
+                    :eventAction action
+                    :eventLabel label}))))

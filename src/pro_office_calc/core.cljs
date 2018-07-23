@@ -2,11 +2,17 @@
   (:require-macros
    [pro-office-calc.macros :refer [code-critic]])
   (:require
+   [day8.re-frame.http-fx]
    [goog.dom :as gdom]
-   [reagent.core :as reagent]
-   [re-frame.core :refer [dispatch-sync]]
    [pro-office-calc.config :refer [app-config]]
-   [pro-office-calc.view :as view]))
+   [pro-office-calc.cofx]
+   [pro-office-calc.fx]
+   [pro-office-calc.events]
+   [pro-office-calc.subs]
+   [pro-office-calc.utils]
+   [pro-office-calc.view :as view]
+   [re-frame.core :refer [dispatch-sync]]
+   [reagent.core :as reagent]))
 
 (defn ^:export run
   []
