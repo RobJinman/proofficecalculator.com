@@ -49,7 +49,8 @@
              :includes       [#".*"]
              :excludes       [#".*~"
                               #".*/\.gitignore"
-                              #"resources/public/js/.*"]
+                              #"resources/public/js/.*"
+                              #"resources/public/downloads/.*"]
              :silent         false
              :verbose        false
              :skip-stencil   [#"resources/public/css/.*"

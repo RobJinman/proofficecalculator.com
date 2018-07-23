@@ -14,6 +14,14 @@
    [re-frame.core :refer [dispatch-sync]]
    [reagent.core :as reagent]))
 
+(extend-type js/NodeList
+  ISeqable
+  (-seq [array] (array-seq array 0)))
+
+(extend-type js/HTMLCollection
+  ISeqable
+  (-seq [array] (array-seq array 0)))
+
 (defn ^:export run
   []
   (dispatch-sync [:initialise])

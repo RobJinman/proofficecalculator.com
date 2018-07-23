@@ -4,14 +4,6 @@
    [pro-office-calc.utils]
    [re-frame.core :refer [reg-event-db reg-event-fx]]))
 
-(extend-type js/NodeList
-  ISeqable
-  (-seq [array] (array-seq array 0)))
-
-(extend-type js/HTMLCollection
-  ISeqable
-  (-seq [array] (array-seq array 0)))
-
 (reg-event-fx
  :initialise
  (fn [cofx _]
