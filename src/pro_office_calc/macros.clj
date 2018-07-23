@@ -1,6 +1,5 @@
 (ns pro-office-calc.macros)
 
-
 (defn criticise-code
   [msg code]
   `(println ~msg (quote ~code)))
