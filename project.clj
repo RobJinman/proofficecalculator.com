@@ -2,14 +2,14 @@
   :description "Pro Office Calculator"
 
   :dependencies [[day8.re-frame/http-fx "0.1.6"]
-                 [org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.227"]
+                 [org.clojure/clojure "1.9.0"]
+                 [org.clojure/clojurescript "1.10.339"]
                  [org.clojure/test.check "0.9.0"]
-                 [re-frame "0.8.0"]
-                 [reagent "0.6.0-rc"]]
+                 [re-frame "0.10.5"]
+                 [reagent "0.8.1"]]
 
-  :plugins [[lein-cljsbuild "1.1.3"]
-            [lein-figwheel "0.5.4-7"]
+  :plugins [[lein-cljsbuild "1.1.7"]
+            [lein-figwheel "0.5.16"]
             [lein-resource "15.10.2"]
             [lein-less "1.7.5"]]
 
@@ -37,6 +37,7 @@
                                            :output-to  "resources/public/js/pro_office_calc.js"}}
                        :release {:source-paths ["src"]
                                  :compiler     {:optimizations  :advanced
+                                                :infer-externs  true
                                                 :pretty-print   false
                                                 :output-dir     "target/js/out"
                                                 :output-to      "target/js/pro_office_calc.js"

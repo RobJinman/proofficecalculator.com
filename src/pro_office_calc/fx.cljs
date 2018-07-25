@@ -5,7 +5,7 @@
 (reg-fx
  :analytics
  (fn [{:keys [category action label]}]
-   (let [ga (.-ga js/window)]
+   (let [ga (aget js/window "ga")]
      (ga "send" #js{:hitType "event"
                     :eventCategory category
                     :eventAction action
