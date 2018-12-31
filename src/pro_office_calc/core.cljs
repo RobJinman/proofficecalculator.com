@@ -14,8 +14,6 @@
    [re-frame.core :refer [dispatch-sync]]
    [reagent.core :as reagent]))
 
-(set! *warn-on-infer* true)
-
 (extend-type js/NodeList
   ISeqable
   (-seq [array] (array-seq array 0)))

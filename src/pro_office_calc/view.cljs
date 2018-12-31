@@ -20,11 +20,16 @@
 
 (defn download-link
   [name url text]
-  [:a  {:class "download-link"
-        :href url
-        :download nil
-        :on-click #(rf/dispatch [:download-link-click name url])}
-   text])
+  [:span {:class "download-link"}
+   [:a  {:class "download-link"
+         :href url
+         :download nil
+         :on-click #(rf/dispatch [:download-link-click name url])
+         :on-context-menu (fn [e]
+                            (.preventDefault e)
+                            false)}
+    (span "link-text" text)]
+   [:span {:class "left-click"} [:br] "left-click"]])
 
 (defn footer-view
   []

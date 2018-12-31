@@ -37,7 +37,6 @@
                                            :output-to  "resources/public/js/pro_office_calc.js"}}
                        :release {:source-paths ["src"]
                                  :compiler     {:optimizations  :advanced
-                                                :infer-externs  true
                                                 :pretty-print   false
                                                 :output-dir     "target/js/out"
                                                 :output-to      "target/js/pro_office_calc.js"
