@@ -33,10 +33,16 @@
  (fn [db [_ result]]
    (let [parser (js/DOMParser.)
          xml-doc (.parseFromString parser result "text/xml")
-         windows (get-element-text xml-doc "windows")
-         osx (get-element-text xml-doc "osx")]
-     (assoc-in db [:download-locations] {:windows (str "downloads/" windows)
-                                         :osx (str "downloads/" osx)}))))
+         windows-installer (get-element-text xml-doc "windows-installer")
+         windows-bundle (get-element-text xml-doc "windows-bundle")
+         osx-bundle (get-element-text xml-doc "osx-bundle")
+         linux-installer (get-element-text xml-doc "linux-installer")
+         linux-bundle (get-element-text xml-doc "linux-bundle")]
+     (assoc-in db [:download-locations] {:windows-installer (str "downloads/" windows-installer)
+                                         :windows-bundle (str "downloads/" windows-bundle)
+                                         :osx-bundle (str "downloads/" osx-bundle)
+                                         :linux-installer (str "downloads/" linux-installer)
+                                         :linux-bundle (str "downloads/" linux-bundle)}))))
 
 (reg-event-db
  :read-manifest/failure
